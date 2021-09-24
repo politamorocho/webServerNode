@@ -19,30 +19,31 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 app.use(express.static('public'));
 
-app.get('/',  (req, res)=> {
-    res.render('home',{
-        nombre:'Paola',
-        titulo:'curso node'
-    });
-  })
+// app.get('/',  (req, res)=> {
+//     res.render('home',{
+//         nombre:'Paola',
+//         titulo:'curso node'
+//     });
+//   })
  
 
-app.get('/generic', (req, res) =>{
-    res.render('generic',{
-        nombre:'Paola',
-        titulo:'curso node'
+// app.get('/generic', (req, res) =>{
+//     res.render('generic',{
+//         nombre:'Paola',
+//         titulo:'curso node'
+//     })
+//   })
+
+//   app.get('/elements',  (req, res)=> {
+//     res.render('elements',{
+//         nombre:'Paola',
+//         titulo:'curso node'
+//     })
+//   })
+
+    app.get('*',(req,res)=>{
+        res.sendFile(__dirname+'/public/index.html')
     })
-  })
-
-  app.get('/elements',  (req, res)=> {
-    res.render('elements',{
-        nombre:'Paola',
-        titulo:'curso node'
-    })
-  })
-
-
-
 
 
 app.listen(port);
